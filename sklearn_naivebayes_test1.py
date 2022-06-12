@@ -57,7 +57,7 @@ test_info_df = X_test.iloc[:,:f_idx]
 X_train = X_train.iloc[:,f_idx:]
 X_test = X_test.iloc[:,f_idx:]
 
-# NOTE: How our data is and what we are trying to do should indicate which of type of Naive Bayes we should use.
+# NOTE: How our data is and what we are trying to do should indicate which type of Naive Bayes we should use.
 #       We will outline how to do all three.
 
 # ---------------------------------------------------- Bernoulli -------------------------------------------------------
