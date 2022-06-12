@@ -22,7 +22,6 @@ Info:
 """
 
 # Import stuff
-import numpy as np
 import pandas as pd
 from sklearn.naive_bayes import BernoulliNB
 from sklearn.naive_bayes import GaussianNB
