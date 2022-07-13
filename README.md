@@ -1,2 +1,2 @@
-# Data-Analysis-Showcase
-Showcase of common Exploratory Data Analysis techniques and ML algorithms
+# Python-Showcase
+Showcase of generally using Python, common Exploratory Data Analysis techniques, and ML algorithms
