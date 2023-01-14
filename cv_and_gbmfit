@@ -1,0 +1,32 @@
+# Here's an example of how to use train() function from caret package to perform 5-fold cross validation
+# on a GBM model using gbm.fit() and non-default options for the hyperparameters:
+
+library(caret)
+
+# load the data from a CSV file
+data <- read.csv("mydata.csv")
+
+# split the data into training and testing sets
+set.seed(123)
+split <- sample.split(data$y, SplitRatio = 0.7)
+train <- subset(data, split == TRUE)
+test <- subset(data, split == FALSE)
+
+# specify the formula
+formula <- y ~ .
+
+# fit the model using the training data with 5-fold cross validation
+fit <- train(formula, data = train, method = "gbm.fit", 
+             distribution = "bernoulli", n.trees = 1000,
+             shrinkage = 0.01, interaction.depth = 5,
+             bag.fraction = 0.5, tree.complexity = 1,
+             trControl = trainControl(method = "cv", number = 5))
+
+# make predictions using the testing data
+predictions <- predict(fit, newdata = test, type = "response")
+
+# convert predictions to binary class labels
+predictions <- ifelse(predictions > 0.5, 1, 0)
+
+# calculate accuracy
+accuracy <- mean(predictions == test$y)
